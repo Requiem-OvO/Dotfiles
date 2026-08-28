@@ -1,5 +1,5 @@
 {
-  "$schema": "https://opencode.ai/config.json",
+  
   "plugin": ["evolver-opencode-plugin","@dietrichgebert/ponytail"]
 
 }
