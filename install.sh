@@ -4,7 +4,7 @@ set -e
 echo "Installing opencode..."
 curl -fsSL https://opencode.ai/install | bash
 
-cp ./opencode.json "/workspaces/${GITHUB_REPOSITORY##*/}/opencode.json" 2>/dev/null || true
+cp ./opencode.json "/workspaces/${GITHUB_REPOSITORY##*/}/opencode.json"
 
 echo "Installing ponytail plugin..."
 copilot plugin marketplace add DietrichGebert/ponytail
