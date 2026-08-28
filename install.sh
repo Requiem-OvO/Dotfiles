@@ -4,6 +4,12 @@ set -e
 echo "Installing opencode..."
 curl -fsSL https://opencode.ai/install | bash
 
+echo "Copying opencode.json to repo..."
+repo_name="${GITHUB_REPOSITORY##*/}"
+dest="/workspaces/${repo_name}/opencode.json"
+mkdir -p "$(dirname "$dest")"
+cp "./opencode.json" "$dest"
+
 echo "Installing ponytail plugin..."
 copilot plugin marketplace add DietrichGebert/ponytail
 copilot plugin install ponytail@ponytail
