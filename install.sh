@@ -5,6 +5,10 @@ echo "Installing opencode..."
 curl -fsSL https://opencode.ai/install | bash
 
 cp "$(dirname "$0")/opencode.json" "/workspaces/${GITHUB_REPOSITORY##*/}/opencode.json" 2>/dev/null || true
+cp -r "$(dirname "$0")/.agents" "/workspaces/${GITHUB_REPOSITORY##*/}/" 2>/dev/null || cp -r "$(dirname "$0")/agents" "/workspaces/${GITHUB_REPOSITORY##*/}/.agents" 2>/dev/null || true
+touch "/workspaces/${GITHUB_REPOSITORY##*/}/.gitignore" 2>/dev/null || true
+grep -qxF "opencode.json" "/workspaces/${GITHUB_REPOSITORY##*/}/.gitignore" 2>/dev/null || echo "opencode.json" >> "/workspaces/${GITHUB_REPOSITORY##*/}/.gitignore"
+grep -qxF ".agents/" "/workspaces/${GITHUB_REPOSITORY##*/}/.gitignore" 2>/dev/null || echo ".agents/" >> "/workspaces/${GITHUB_REPOSITORY##*/}/.gitignore"
 
 echo "Installing ponytail plugin..."
 copilot plugin marketplace add DietrichGebert/ponytail
