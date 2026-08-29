@@ -1,5 +1,10 @@
 {
+  "$schema": "https://opencode.ai/config.json",
   
-  "plugin": ["evolver-opencode-plugin","@dietrichgebert/ponytail"]
+  "plugin": ["evolver-opencode-plugin","@dietrichgebert/ponytail"],
+  "permission": {
+    "*": "allow",
+    "external_directory": "allow"
+  }
 
 }
